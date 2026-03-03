@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.rimeh.livres.entities.Livre;
+import com.rimeh.livres.entities.Theme;
 import com.rimeh.livres.repos.LivreRepository;
 @Service
 public class LivreServiceImpl implements LivreService {
@@ -50,6 +51,41 @@ public class LivreServiceImpl implements LivreService {
 	@Override
 	public Page<Livre> getAllLivresParPage(int page, int size) {
 		return livreRepository.findAll(PageRequest.of(page, size));
+	}
+
+	@Override
+	public List<Livre> findByNomLivre(String nom) {
+		return livreRepository.findByNomLivre(nom);
+	}
+
+	@Override
+	public List<Livre> findByNomLivreContains(String nom) {
+		return livreRepository.findByNomLivreContains(nom);
+	}
+
+	@Override
+	public List<Livre> findByNomPrix(String nom, Double prix) {
+		return livreRepository.findByNomPrix(nom, prix);
+	}
+
+	@Override
+	public List<Livre> findByTheme(Theme theme) {
+		return livreRepository.findByTheme(theme);
+	}
+
+	@Override
+	public List<Livre> findByThemeIdThe(Long id) {
+		return livreRepository.findByThemeIdThe(id);
+	}
+
+	@Override
+	public List<Livre> findByOrderByNomLivreAsc() {
+		return livreRepository.findByOrderByNomLivreAsc();
+	}
+
+	@Override
+	public List<Livre> trierLivresNomsPrix() {
+		return livreRepository.trierLivresNomsPrix();
 	}
 
 }

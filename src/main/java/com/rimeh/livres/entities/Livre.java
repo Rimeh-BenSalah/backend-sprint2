@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 @Entity
 public class Livre {
 	@Id
@@ -14,6 +15,8 @@ public class Livre {
 	private Double prixLivre;
 	private Date Datedepublication;
 	private String email;
+	@ManyToOne
+	private Theme theme;
 	public Livre(String nomLivre, String auteur, Double prixLivre, Date datedepublication, String email) {
 		super();
 		this.nomLivre = nomLivre;
@@ -65,6 +68,12 @@ public class Livre {
 	public String toString() {
 		return "Livre [idLivre=" + idLivre + ", nomLivre=" + nomLivre + ", auteur=" + auteur + ", prixLivre="
 				+ prixLivre + ", Datedepublication=" + Datedepublication + ", email=" + email + "]";
+	}
+	public Theme getTheme() {
+		return theme;
+	}
+	public void setTheme(Theme theme) {
+		this.theme = theme;
 	}
 	
 	
