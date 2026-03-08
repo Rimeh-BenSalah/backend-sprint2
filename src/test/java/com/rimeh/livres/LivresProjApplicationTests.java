@@ -33,7 +33,7 @@ class LivresProjApplicationTests {
 
 	@Test
 	public void testFindLivre() {
-		Livre l = livreRepository.findById(1L).get();
+		Livre l = livreRepository.findById(2L).get();
 		System.out.println(l);
 	}
 

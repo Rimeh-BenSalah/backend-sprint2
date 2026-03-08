@@ -22,4 +22,5 @@ public interface LivreService {
 	List<Livre> findByThemeIdThe(Long id);
 	List<Livre> findByOrderByNomLivreAsc();
 	List<Livre> trierLivresNomsPrix();
+	List<Theme> getAllThemes();
 }

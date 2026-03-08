@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 import com.rimeh.livres.entities.Livre;
 import com.rimeh.livres.entities.Theme;
 import com.rimeh.livres.repos.LivreRepository;
+import com.rimeh.livres.repos.ThemeRepository;
 @Service
 public class LivreServiceImpl implements LivreService {
 
 	@Autowired 
 	LivreRepository livreRepository;
-	
+	@Autowired
+	ThemeRepository themeRepository;
 	@Override
 	public Livre saveLivre(Livre l) {
 		return livreRepository.save(l);
@@ -86,6 +88,10 @@ public class LivreServiceImpl implements LivreService {
 	@Override
 	public List<Livre> trierLivresNomsPrix() {
 		return livreRepository.trierLivresNomsPrix();
+	}
+	@Override
+	public List<Theme> getAllThemes() {
+	     return themeRepository.findAll();
 	}
 
 }

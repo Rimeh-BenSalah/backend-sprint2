@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Modifier des Livres</title>
+</head>
+<body>
+<div th:replace="template"></div>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            Modifier des Livres
+        </div>
+        <div class="card-body">
+            <form th:action="@{updateLivre}" method="post">
+
+                <!-- ID caché -->
+                <div class="form-group">
+                    <label class="control-label" hidden>ID Livre :</label>
+                    <input type="hidden" name="idLivre" class="form-control" th:value="${livre.idLivre}" />
+                </div>
+
+                <!-- Nom Livre -->
+                <div class="form-group">
+                    <label class="control-label">Nom Livre :</label>
+                    <input type="text" name="nomLivre" class="form-control" th:value="${livre.nomLivre}" />
+                    <span th:errors="${livre.nomLivre}" class="text-danger"></span>
+                </div>
+
+                <!-- Auteur -->
+                <div class="form-group">
+                    <label class="control-label">Auteur :</label>
+                    <input type="text" name="auteur" class="form-control" th:value="${livre.auteur}" />
+                    <span th:errors="${livre.auteur}" class="text-danger"></span>
+                </div>
+
+                <!-- Prix Livre -->
+                <div class="form-group">
+                    <label class="control-label">Prix Livre :</label>
+                    <input type="text" name="prixLivre" class="form-control" th:value="${livre.prixLivre}" />
+                    <span th:errors="${livre.prixLivre}" class="text-danger"></span>
+                </div>
+
+                <!-- Date de publication -->
+                <div class="form-group">
+                    <label class="control-label">Date de publication :</label>
+                    <input type="date" name="Datedepublication" class="form-control" th:value="${#dates.format(livre.Datedepublication, 'yyyy-MM-dd')}" />
+                    <span th:errors="${livre.Datedepublication}" class="text-danger"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label class="control-label">Email :</label>
+                    <input type="email" name="email" class="form-control" th:value="${livre.email}" />
+                    <span th:errors="${livre.email}" class="text-danger"></span>
+                </div>
+
+                <!-- Bouton -->
+                <div>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

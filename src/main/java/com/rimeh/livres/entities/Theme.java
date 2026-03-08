@@ -13,6 +13,7 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
@@ -25,6 +26,7 @@ public class Theme {
 	private String nomThe;
 	private String descriptionThe;
 	@JsonIgnore
+	@ToString.Exclude
 	@OneToMany(mappedBy = "theme")
 	private List<Livre> livres;
 	
