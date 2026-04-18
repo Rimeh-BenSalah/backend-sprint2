@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.*;
 
@@ -36,11 +37,11 @@ public class Livre {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date Datedepublication;
 
-    @NotNull(message = "L'email est obligatoire")
-    @Email(message = "Email invalide")
-    private String email;
+   
+    //private String email;
 
     @ManyToOne
+    @JoinColumn(name = "idThe")
     private Theme theme;
 
     public Livre() {}
@@ -50,7 +51,7 @@ public class Livre {
         this.auteur = auteur;
         this.prixLivre = prixLivre;
         this.Datedepublication = Datedepublication;
-        this.email = email;
+        //this.email = email;
     }
 
     // Getters et setters
@@ -69,8 +70,8 @@ public class Livre {
     public Date getDatedepublication() { return Datedepublication; }
     public void setDatedepublication(Date Datedepublication) { this.Datedepublication = Datedepublication; }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+   /* public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }*/
 
     public Theme getTheme() { return theme; }
     public void setTheme(Theme theme) { this.theme = theme; }
@@ -78,6 +79,6 @@ public class Livre {
     @Override
     public String toString() {
         return "Livre [idLivre=" + idLivre + ", nomLivre=" + nomLivre + ", auteur=" + auteur +
-               ", prixLivre=" + prixLivre + ", Datedepublication=" + Datedepublication + ", email=" + email + "]";
+               ", prixLivre=" + prixLivre + ", Datedepublication=" + Datedepublication + "]";
     }
 }
